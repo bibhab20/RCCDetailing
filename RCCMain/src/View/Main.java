@@ -18,14 +18,19 @@ public class Main {
         String st;
         StringBuilder sb = new StringBuilder();
         while ((st = br.readLine()) != null)
-            sb.append(st);
+            sb.append(st).append("\n");
         String text = sb.toString();
 
         //Nitin' code starts here
         Parser parser = new Parser();
         Structure structure = (Structure) parser.getStructure(text);
         List<Beam> beams = structure.getBeams();
-        Beam firstBeam = beams.get(0);
+        System.out.println(beams.size());
+        for(Beam beam: beams){
+            System.out.println("************");
+            System.out.println(beam.getSegmentNumber());
+            System.out.println(beam.getLength());
+        }
 
     }
 }

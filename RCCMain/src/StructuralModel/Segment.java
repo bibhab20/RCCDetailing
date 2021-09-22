@@ -1,6 +1,7 @@
 package StructuralModel;
 
 public class Segment {
+    public SegmentType type;
     private int segmentNumber;
     private boolean isPass;
     private Incidence incidence;
