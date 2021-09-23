@@ -28,7 +28,9 @@ public class Parser extends AbstractParser{
     }
 
     private List<String> getSegmentSections(String text){
-        String[] arr = text.split("[=]+");
+        StringBuilder sb = new StringBuilder();
+        sb.append("==".repeat(38));
+        String[] arr = text.split(sb.toString());
         return cleanUp(arr);
 
     }

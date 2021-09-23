@@ -13,7 +13,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        File file = new File("C:\\Myfiles\\Tech Hobby\\NitinFolder\\nitinfile4.txt");
+        File file = new File("C:\\Users\\Desktop\\Dropbox\\1DoD\\2021\\RCC_DETAILING\\V15 MID.txt");
         BufferedReader br = new BufferedReader(new FileReader(file));
 
         String st;
@@ -26,17 +26,25 @@ public class Main {
         Parser parser = new Parser();
         Structure structure = (Structure) parser.getStructure(text);
         List<Beam> beams = structure.getBeams();
+        List<Column> columns = structure.getColumns();
         System.out.println(beams.size());
+        StringBuilder stringBuilder = new StringBuilder();
+        System.out.println("Failed Beam");
         for(Beam beam: beams){
-            System.out.println("************");
-            System.out.println(beam.getSegmentNumber());
-            System.out.println(beam.getLength());
+            if(!beam.isPass()){
+                stringBuilder.append(beam.getSegmentNumber()).append(" ");
+            }
         }
-
-        for(Column column: structure.getColumns()){
-            System.out.println("************");
-            System.out.println("Col no: "+column.getSegmentNumber());
+        System.out.println(stringBuilder);
+        stringBuilder = new StringBuilder();
+        System.out.println("Failed columns");
+        for(Column column: columns){
+            if(!column.isPass()){
+                stringBuilder.append(column.getSegmentNumber()).append(" ");
+            }
         }
+        System.out.println(stringBuilder);
 
     }
+
 }

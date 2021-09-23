@@ -18,7 +18,7 @@ public class ParseUtil {
     public Properties getProperties() {
         FileInputStream fileInputStream = null;
         try {
-            fileInputStream = new FileInputStream("C:\\Users\\pattn\\IdeaProjects\\RCCDetailing\\RCCMain\\src\\config.properties");
+            fileInputStream = new FileInputStream("C:\\Users\\Desktop\\IdeaProjects\\RCCDetailing\\RCCMain\\src\\config.properties");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
