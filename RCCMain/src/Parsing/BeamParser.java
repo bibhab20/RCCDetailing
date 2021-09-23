@@ -39,9 +39,9 @@ public class BeamParser {
 
     private double getLength(String section){
 
-        String[] ar = section.split(properties.getProperty("length_identifier"));
-        String value = ar[1].split("mm",2)[0];
-        return Double.parseDouble(value.trim());
+        String line = this.lines.get(3);
+        String value = line.split("\\s+")[1];
+        return Double.parseDouble(value);
     }
 
     private double[] getSize(String section){
@@ -105,10 +105,22 @@ public class BeamParser {
     private ConcreteGrade getConcreteGrade(String section){
         String line = this.lines.get(2);
         String value = line.split("\\s+")[0];
-        switch (value){
-            case "M25":
+        switch (value) {
+            case "M15" : {
+                return ConcreteGrade.M15;
+            }
+            case "M20" : {
+                return ConcreteGrade.M20;
+            }
+            case "M25" : {
                 return ConcreteGrade.M25;
-
+            }
+            case "M30" : {
+                return ConcreteGrade.M30;
+            }
+            case "M35" : {
+                return ConcreteGrade.M35;
+            }
         }
         return null;
     }
@@ -116,7 +128,9 @@ public class BeamParser {
     private MainReinforcementGrade getMainReinforcement(String section){
         String line = this.lines.get(2);
         String value = line.split("\\s+")[1];
-        if(value=="Fe500")
+        if(value.equals("Fe415"))
+            return MainReinforcementGrade.Fe415;
+        if(value.equals("Fe500"))
             return MainReinforcementGrade.Fe500;
         return null;
     }
@@ -153,5 +167,14 @@ public class BeamParser {
 
     private boolean isPass(String section){
         return !section.contains(properties.getProperty("beam_fail_identifier"));
+    }
+    private ShearReinforcementGrade getShearReinforcementGrade(){
+        String line = this.lines.get(2);
+        String value = line.split("\\s+")[3];
+        if(value.equals("Fe415"))
+            return ShearReinforcementGrade.Fe415;
+        if(value.equals("Fe500"))
+            return ShearReinforcementGrade.Fe500;
+        return null;
     }
 }

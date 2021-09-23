@@ -1,5 +1,5 @@
 package StructuralModel;
 
 public enum ConcreteGrade {
-    M25, M30,
+    M15, M20, M25, M30, M35
 }

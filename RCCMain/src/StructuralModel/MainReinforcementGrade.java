@@ -1,5 +1,5 @@
 package StructuralModel;
 
 public enum MainReinforcementGrade {
-    Fe500,Fe300
+    Fe415, Fe500
 }

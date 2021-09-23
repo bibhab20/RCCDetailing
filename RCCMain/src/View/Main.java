@@ -2,6 +2,7 @@ package View;
 
 import Parsing.Parser;
 import StructuralModel.Beam;
+import StructuralModel.Column;
 import StructuralModel.Structure;
 
 import java.io.BufferedReader;
@@ -30,6 +31,11 @@ public class Main {
             System.out.println("************");
             System.out.println(beam.getSegmentNumber());
             System.out.println(beam.getLength());
+        }
+
+        for(Column column: structure.getColumns()){
+            System.out.println("************");
+            System.out.println("Col no: "+column.getSegmentNumber());
         }
 
     }
