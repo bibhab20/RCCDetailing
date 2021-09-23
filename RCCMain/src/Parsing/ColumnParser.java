@@ -16,14 +16,16 @@ public class ColumnParser {
         for(String s: ar){
             lines.add(s.trim());
         }
-        if(!isPass(section)){
-            column.setPass(false);
-            return column;
-        }
         column.setSegmentNumber(getColumnNumber());
         column.setConcreteGrade(getConcreteGrade(section));
         column.setMainReinforcementGrade(getMainReinforcementGrade(section));
         column.setTieReinforcementGrade(getTieReinforcementGrade(section));
+        if(!isPass(section)){
+            column.setPass(false);
+            return column;
+        }
+        column.setPass(true);
+
         column.setLength(getLength(section));
         column.setCrossSection(getCrossSection(section));
         column.setCover(getCover(section));

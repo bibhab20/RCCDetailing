@@ -1,5 +1,7 @@
 package StructuralModel;
 
+import java.util.Arrays;
+
 public class Column extends Segment{
     private double length;
     private double[] crossSection;
@@ -77,5 +79,19 @@ public class Column extends Segment{
 
     public void setConcreteGrade(ConcreteGrade concreteGrade) {
         this.concreteGrade = concreteGrade;
+    }
+
+    @Override
+    public String toString() {
+        return "Column{" +
+                "length=" + length +
+                ", crossSection=" + Arrays.toString(crossSection) +
+                ", cover=" + cover +
+                ", requiredSteelArea=" + requiredSteelArea +
+                ", tieReinforcement=" + tieReinforcement +
+                ", mainReinforcementGrade=" + mainReinforcementGrade +
+                ", tieReinforcementGrade=" + tieReinforcementGrade +
+                ", concreteGrade=" + concreteGrade +
+                '}';
     }
 }

@@ -25,7 +25,7 @@ public class BeamParser {
             beam.setPass(false);
             return beam;
         }
-
+        beam.setPass(true);
 
         beam.setTopReinforcement(getTopReinforcement(section));
         beam.setBottomReinforcement(getBottomReinforcement(section));
@@ -166,8 +166,10 @@ public class BeamParser {
     }
 
     private boolean isPass(String section){
-        return !section.contains(properties.getProperty("beam_fail_identifier"));
+        boolean value = section.contains(properties.getProperty("beam_fail_identifier"));
+        return !value;
     }
+
     private ShearReinforcementGrade getShearReinforcementGrade(){
         String line = this.lines.get(2);
         String value = line.split("\\s+")[3];

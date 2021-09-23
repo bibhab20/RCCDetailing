@@ -1,5 +1,6 @@
 package StructuralModel;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Beam extends Segment{
@@ -87,5 +88,20 @@ public class Beam extends Segment{
 
     public void setShearReinforcement(List<StirreupSpecification> shearReinforcement) {
         this.shearReinforcement = shearReinforcement;
+    }
+
+    @Override
+    public String toString() {
+        return "Beam{" +
+                "length=" + length +
+                ", size=" + Arrays.toString(size) +
+                ", topReinforcement=" + topReinforcement +
+                ", bottomReinforcement=" + bottomReinforcement +
+                ", cover=" + cover +
+                ", concreteGrade=" + concreteGrade +
+                ", mainReinforcementGrade=" + mainReinforcementGrade +
+                ", shearReinforcementGrade=" + shearReinforcementGrade +
+                ", shearReinforcement=" + shearReinforcement +
+                '}';
     }
 }
