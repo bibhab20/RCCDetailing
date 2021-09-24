@@ -55,8 +55,7 @@ public class BeamParser {
     }
     private int getBeamNumber(){
         String line = lines.get(1).trim();
-        if(Integer.parseInt(line.split("\\s+")[6])==0)
-            System.out.println("error:    "+line);
+
         return Integer.parseInt(line.split("\\s+")[6]);
     }
 

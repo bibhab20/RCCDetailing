@@ -17,7 +17,6 @@ public class Parser extends AbstractParser{
         for(String section: sections){
             segments.add(segmentParser.parse(section));
         }
-        System.out.println("segment size"+ segments.size());
         for(Segment segment: segments){
             if(segment!=null)
                 structure.addSegment(segment);

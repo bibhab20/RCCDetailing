@@ -35,13 +35,6 @@ public class ColumnParser {
     }
 
     private boolean isPass(String section){
-        if(getColumnNumber()==6928){
-            System.out.println("special test case");
-            System.out.println(properties.getProperty("column_fail_identifier"));
-            System.out.println(section.contains("ADEQUATE"));
-            System.out.println("*****");
-            System.out.println(section);
-        }
         return !section.contains(properties.getProperty("column_fail_identifier"));
     }
     private int getColumnNumber(){
@@ -137,10 +130,7 @@ public class ColumnParser {
         }
         //System.out.println(line);
         int len = line.split("\\s++").length;
-        System.out.println(len);
-        if(len==1){
-            System.out.println(getColumnNumber());
-        }
+
         return Double.parseDouble(line.split("\\s++")[4]);
     }
 }
